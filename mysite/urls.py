@@ -5,7 +5,7 @@ from django.conf.urls import patterns, include, url
 # admin.autodiscover()
 
 #from mysite.views import hello, current_datetime, hours_ahead
-from mysite.views import hello, current_datetime_1
+from mysite.views import hello, current_datetime_1, current_datetime_2
 
 urlpatterns = patterns('',
     # Examples:
@@ -19,7 +19,7 @@ urlpatterns = patterns('',
     # url(r'^admin/', include(admin.site.urls)),
     ('^hello/$', hello),
     ('^time1/$', current_datetime_1),
-    #('^time2/$', current_datetime_2),
+    ('^time2/$', current_datetime_2),
     #(r'^time/plus/(\d{1,2})/$', hours_ahead),
     ('^$', current_datetime_1),     # homepage
 )
