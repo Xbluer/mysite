@@ -21,3 +21,9 @@ def current_datetime_2(request):
     c = Context({"current": now})
     html = t.render(c)
     return HttpResponse(html)
+
+from django.shortcuts import render_to_response
+def current_datetime_3(request):
+    now = datetime.datetime.now()
+    c = Context({"current": now})
+    return render_to_response('current_datetime.html', c)
