@@ -27,3 +27,7 @@ def current_datetime_3(request):
     now = datetime.datetime.now()
     c = Context({"current": now})
     return render_to_response('current_datetime.html', c)
+
+def current_datetime_4(request):
+    current = datetime.datetime.now()
+    return render_to_response('current_datetime.html', locals())
