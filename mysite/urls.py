@@ -3,7 +3,9 @@ from django.conf.urls import patterns, include, url
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
-from mysite.views import hello, current_datetime, hours_ahead
+
+#from mysite.views import hello, current_datetime, hours_ahead
+from mysite.views import hello, current_datetime_1
 
 urlpatterns = patterns('',
     # Examples:
@@ -16,7 +18,8 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
     ('^hello/$', hello),
-    ('^time/$', current_datetime),
-    (r'^time/plus/(\d{1,2})/$', hours_ahead),
-    ('^$', hello),     # homepage
+    ('^time1/$', current_datetime_1),
+    #('^time2/$', current_datetime_2),
+    #(r'^time/plus/(\d{1,2})/$', hours_ahead),
+    ('^$', current_datetime_1),     # homepage
 )
