@@ -30,4 +30,4 @@ def current_datetime_3(request):
 
 def current_datetime_4(request):
     current = datetime.datetime.now()
-    return render_to_response('current_datetime.html', locals())
+    return render_to_response('current_datetime_3.html', locals())
