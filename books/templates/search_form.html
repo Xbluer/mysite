@@ -4,11 +4,11 @@
         search_form
     </title>
 </head>
-<body>
+<body style="text-align:center;">
     {% if error %}
-    <p style = "color: red;">Please submit a search term</p>
+    <p style = "color:red;">Please submit a search term</p>
     {% endif %}
-    <form action="/search/" method="get">
+    <form action="" method="get">
         <input type="text" name="q">
         <input type="submit" value="Search">
     </form>

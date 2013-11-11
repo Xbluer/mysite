@@ -28,10 +28,9 @@ urlpatterns = patterns('',
     ('^$', current_datetime_1),     # homepage
 
     # display meta
-    ('^display_meta$', display_meta),
-    ('^display_meta_2$', display_meta_2),
+    ('^display_meta/$', display_meta),
+    ('^display_meta_2/$', display_meta_2),
     
-    # search form
-    ('^search-form$', search_form),
+    # search
     ('^search/$', search),
 )
