@@ -1,5 +1,6 @@
 from django.http import HttpResponse, Http404
 from django.template import Template, Context
+from django.shortcuts import render_to_response
 import datetime
 
 # for loader template
@@ -27,7 +28,6 @@ def current_datetime_2(request):
     html = t.render(c)
     return HttpResponse(html)
 
-from django.shortcuts import render_to_response
 def current_datetime_3(request):
     now = datetime.datetime.now()
     c = Context({"current": now})

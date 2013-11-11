@@ -4,9 +4,10 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
-#from mysite.views import hello, current_datetime, hours_ahead
-from mysite.views import hello, current_datetime_1, current_datetime_2, current_datetime_3, \
-    current_datetime_4, display_meta, display_meta_2
+# import all function in 'views.py' files
+from mysite.views import *
+from books.views import *
+
 
 urlpatterns = patterns('',
     # Examples:
@@ -29,4 +30,8 @@ urlpatterns = patterns('',
     # display meta
     ('^display_meta$', display_meta),
     ('^display_meta_2$', display_meta_2),
+    
+    # search form
+    ('^search-form$', search_form),
+    ('^search/$', search),
 )

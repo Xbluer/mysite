@@ -113,7 +113,8 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 
     #'./mysite/templates/'  # for test
-    os.path.join(os.path.dirname(__file__), 'templates').replace('\\', '/')
+    os.path.join(os.path.dirname(__file__), 'templates').replace('\\', '/'),
+    os.path.join(os.path.dirname(__file__), '/../books/templates').replace('\\', '/'),
 
 )
 
