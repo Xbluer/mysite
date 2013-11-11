@@ -6,7 +6,7 @@ admin.autodiscover()
 
 #from mysite.views import hello, current_datetime, hours_ahead
 from mysite.views import hello, current_datetime_1, current_datetime_2, current_datetime_3, \
-    current_datetime_4
+    current_datetime_4, display_meta, display_meta_2
 
 urlpatterns = patterns('',
     # Examples:
@@ -25,4 +25,8 @@ urlpatterns = patterns('',
     ('^time4/$', current_datetime_4),
     #(r'^time/plus/(\d{1,2})/$', hours_ahead),
     ('^$', current_datetime_1),     # homepage
+
+    # display meta
+    ('^display_meta$', display_meta),
+    ('^display_meta_2$', display_meta_2),
 )

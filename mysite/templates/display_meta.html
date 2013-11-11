@@ -1,0 +1,18 @@
+{% extends 'base/display_base.html' %}
+
+{% block header %}
+    display meta
+{% endblock %}
+
+{% block tablename %}
+    display meat Table
+{% endblock %}
+
+{% block table %}
+    {% for k, v in item_list%}
+        <tr>
+            <td>{{ k }}</td>
+            <td>{{ v }}</td>
+        <tr>
+    {% endfor%}
+{% endblock %}
