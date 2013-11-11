@@ -1,12 +1,14 @@
 <html>
 <head>
     <title>
-        search_form
+        search
     </title>
 </head>
 <body style="text-align:center;">
-    {% if error %}
-    <p style = "color:red;">Please submit a search term</p>
+    {% if errors %}
+        {% for error in errors %}
+        <p style="color:red;">{{error}}</p>
+        {% endfor %}
     {% endif %}
     <form action="" method="get">
         <input type="text" name="q">

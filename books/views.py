@@ -4,14 +4,15 @@ from django.shortcuts import render_to_response
 from books.models import Book
 
 def search(request):
+    errors = []
     if 'q' in request.GET:
-        if request.GET['q']:
-            q = request.GET['q']
+        q = request.GET['q']
+        if not q:
+            errors.append('Enter an search term.')
+        elif len(q) > 20:
+            errors.append('It\'too long.')
+        else: 
             books = Book.objects.filter(title__icontains = q)
             return render_to_response('search_result.html', 
                                       {'books' : books, 'query': q})
-        else:
-            return render_to_response('search_form.html',
-                                      {'error': True})
-    else:
-        return render_to_response('search_form.html')
+    return render_to_response('search_form.html', {'errors':errors})
