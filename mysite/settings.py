@@ -114,8 +114,8 @@ TEMPLATE_DIRS = (
 
     #'./mysite/templates/'  # for test
     os.path.join(os.path.dirname(__file__), 'templates').replace('\\', '/'),
-    os.path.join(os.path.dirname(__file__), '/../books/templates').replace('\\', '/'),
-
+    os.path.join(os.path.dirname(__file__), '../books/templates').replace('\\', '/'),
+    os.path.join(os.path.dirname(__file__), '../contact/templates').replace('\\', '/'),
 )
 
 INSTALLED_APPS = (
@@ -161,3 +161,12 @@ LOGGING = {
         },
     }
 }
+# test by Qmail
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.qq.com' 
+EMAIL_PORT = 25
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+#EMAIL_HOST_USER = raw_input('QQid: ')
+#import getpass
+#EMAIL_HOST_PASSWORD = getpass.getpass('Qmail password: ')

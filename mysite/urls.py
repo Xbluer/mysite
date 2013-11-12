@@ -5,8 +5,9 @@ from django.contrib import admin
 admin.autodiscover()
 
 # import all function in 'views.py' files
-from mysite.views import *
+from views import *
 from books.views import *
+from contact.views import *
 
 
 urlpatterns = patterns('',
@@ -33,4 +34,8 @@ urlpatterns = patterns('',
     
     # search
     ('^search/$', search),
+
+    # contact , thanks
+    (r'^contact/?$', contact),
+    ('^contact/thanks/$', thanks),
 )

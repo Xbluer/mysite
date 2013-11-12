@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>
+        Contact us
+    </title>
+</head>
+<body>
+    {% if errors %}
+        <p style="color:red;">
+        {% for error in errors %}
+        {{error}}<br>
+        {% endfor %}
+        </p>
+    {% endif %}
+    <form action="/contact/" method="post">
+        {% csrf_token %}
+        <p>Subject:&nbsp;<input type="text" name="subject"></p>
+        <p>Your E-mail:&nbsp;<input type="text" name="email"></p>
+        <p>Message:&nbsp;<input type="textarea" name="message" rows="10" cols="50"></p>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
