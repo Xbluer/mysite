@@ -21,7 +21,10 @@ def contact(request):
                     [''],
                     )
             return HttpResponseRedirect('/contact/thanks/')
-    return render_to_response('contact_form.html', {'errors': errors},
+    return render_to_response('contact_form.html', {'errors': errors,
+                                                    'subject': request.POST.get('subject', ''),
+                                                    'email': request.POST.get('email', ''),
+                                                    'message': request.POST.get('message', '')},
                               context_instance = RequestContext(request))
 
 def thanks(request):
