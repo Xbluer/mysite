@@ -1,31 +1,28 @@
 from django.http import HttpResponse, Http404, HttpResponseRedirect
-from django.shortcuts import render_to_response, RequestContext
+from django.shortcuts import render_to_response, RequestContext, render
 from django.core.mail import send_mail
+from contact.forms import ContactForm
 
 def contact(request):
     errors = []
     if request.method == 'POST':
-        if not request.POST.get('subject', ''):
-            errors.append('Enter a subject')
-        if not request.POST.get('message', ''):
-            errors.append('Enter a message')
-        if not request.POST.get('email') or '@' not in request.POST['email']:
-            errors.append('Enter your email address')
-        if not errors:
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
             send_mail(
-                    request.POST['subject'],
-                    request.POST['message'],
-                    #not request.POST['email'],
-                    request.POST.get('email', 'noreply@example.com'),
-                    # replace ['sitowner@example.com']
-                    [''],
+                    cd['subject'],
+                    cd['message'],
+                    cd.get('email', 'noreplay@example.com'),
+                    ['siteowner@example.com'],
                     )
             return HttpResponseRedirect('/contact/thanks/')
-    return render_to_response('contact_form.html', {'errors': errors,
-                                                    'subject': request.POST.get('subject', ''),
-                                                    'email': request.POST.get('email', ''),
-                                                    'message': request.POST.get('message', '')},
-                              context_instance = RequestContext(request))
+    else:
+        form = ContactForm(
+                initial = {'subject': 'I love your site!'})
+#    return render_to_response('contact_form.html',
+#                              {'form': form},
+#                              context_instance = RequestContext(request))
+    return render(request, 'contact_form.html', {'form': form})
 
 def thanks(request):
     return render_to_response('thanks.html')
